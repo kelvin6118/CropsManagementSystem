@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
+import {TailwindProvider} from 'tailwind-rn';
+import utilities from './tailwind.json';
 import DashBoard from './pages/DashBoard';
 
 const Tab = createMaterialTopTabNavigator();
@@ -26,16 +28,19 @@ function SettingsScreen() {
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="DashBoard">
-              {props => <DashBoard/>}
-            </Tab.Screen>
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </Provider>
+    // @ts-ignore - TailwindProvider is miss a type definition
+    <TailwindProvider utilities={utilities}>
+      <Provider store={store}>
+          <NavigationContainer>
+            <Tab.Navigator>
+              <Tab.Screen name="Home" component={HomeScreen} />
+              <Tab.Screen name="DashBoard">
+                {props => <DashBoard/>}
+              </Tab.Screen>
+              <Tab.Screen name="Settings" component={SettingsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
+      </Provider>
+    </TailwindProvider>
   );
 }

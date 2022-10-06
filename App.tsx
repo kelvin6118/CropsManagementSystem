@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
+import DashBoard from './pages/DashBoard';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -29,6 +30,9 @@ export default function App() {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="DashBoard">
+              {props => <DashBoard/>}
+            </Tab.Screen>
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer>

@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
+import DashBoard from './pages/DashBoard';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
-import DashBoard from './pages/DashBoard';
 
 const Tab = createMaterialTopTabNavigator();
 

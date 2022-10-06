@@ -29,22 +29,6 @@ function SettingsScreen() {
 
 export default function App() {
   return (
-<<<<<<< HEAD
-    // @ts-ignore - TailwindProvider is miss a type definition
-    <TailwindProvider utilities={utilities}>
-      <Provider store={store}>
-          <NavigationContainer>
-            <Tab.Navigator>
-              <Tab.Screen name="Home" component={HomeScreen} />
-              <Tab.Screen name="DashBoard">
-                {props => <DashBoard/>}
-              </Tab.Screen>
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-      </Provider>
-    </TailwindProvider>
-=======
     <Provider store={store}>
         <NavigationContainer>
           <Tab.Navigator>
@@ -53,6 +37,5 @@ export default function App() {
           </Tab.Navigator>
         </NavigationContainer>
     </Provider>
->>>>>>> 105d3791d6545d9237b8b4797c00868174eedfc7
   );
 }

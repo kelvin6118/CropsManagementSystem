@@ -1,3 +1,4 @@
+// webpack.config.js
 const path = require("path");
 const createExpoWebpackConfigAsync = require("@expo/webpack-config");
 

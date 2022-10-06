@@ -4,39 +4,38 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
-import {TailwindProvider} from 'tailwind-rn';
-import utilities from './tailwind.json';
+import "./styles"
+
 
 const Tab = createMaterialTopTabNavigator();
 
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View className="flex-1 items-center justify-center bg-white">
       <Text>Home!</Text>
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 function SettingsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View className="flex-1 items-center justify-center bg-white">
       <Text>Settings!</Text>
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 export default function App() {
   return (
-    // @ts-ignore - TailwindProvider is miss a type definition
-    <TailwindProvider utilities={utilities}>
-      <Provider store={store}>
-          <NavigationContainer>
-            <Tab.Navigator>
-              <Tab.Screen name="Home" component={HomeScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-      </Provider>
-    </TailwindProvider>
+    <Provider store={store}>
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+    </Provider>
   );
 }

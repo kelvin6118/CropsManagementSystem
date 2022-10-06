@@ -1,10 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./**/*.{js,jsx,ts,tsx}",
-  ],
+  content: [],
   theme: {
     extend: {},
   },
   plugins: [],
+  corePlugins: require('tailwind-rn/unsupported-core-plugins'),
 }

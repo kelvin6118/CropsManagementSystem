@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface CMSState {
-    user: String | null
+export interface UserState {
+    value: String | null
 }
 
-const initialState: CMSState = {
-    user: "test"
-}
+const initialState = { value: "tester" } as UserState
 
 export const CMSSlice = createSlice({
     name: 'cms',
     initialState,
     reducers:{
-       
+     loggedIn(state, action: PayloadAction<boolean>) {
+      state.value && action.payload
+     }
     }
 })
 
-export const {} = CMSSlice.actions
+export const {loggedIn} = CMSSlice.actions
 
 export default CMSSlice.reducer

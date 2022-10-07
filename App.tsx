@@ -8,6 +8,8 @@ import "./styles"
 import DashBoard from './pages/DashBoard';
 
 
+
+
 const Tab = createMaterialTopTabNavigator();
 
 function HomeScreen() {

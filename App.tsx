@@ -16,11 +16,11 @@ import Register from './screens/Register';
 import Dashboard from './screens/Dashboard';
 import Profile from "./screens/Profile";
 
+const Tab = createMaterialTopTabNavigator();
+const RootStack = createStackNavigator();
+// const AuthContext = React.createContext();
 
 const App = ({ navigation }) => {
-  const Tab = createMaterialTopTabNavigator();
-  const RootStack = createStackNavigator();
-  const AuthContext = React.createContext();
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -96,33 +96,39 @@ const App = ({ navigation }) => {
   );
   return (
     <>
-    <AuthContext.Provider value={authContext}>
+    
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
             {state.userToken == null ? (
-          <RootStack.Navigator>
-            <RootStack.Screen name="Landing" component={Landing} />
-              <RootStack.Group screenOptions={{ presentation: 'modal' }}>
-                <RootStack.Screen name="Login" component={Login} />
-                <RootStack.Screen name="Register" component={Register} />
-              </RootStack.Group>
-            
-          </RootStack.Navigator>
+              <RootStack.Navigator>
+                <RootStack.Screen name="Landing" component={Landing} />
+                  <RootStack.Group screenOptions={{ presentation: 'modal' }}>
+                    <RootStack.Screen name="Login" component={Login} />
+                    <RootStack.Screen name="Register" component={Register} />
+                  </RootStack.Group>
+              </RootStack.Navigator>    
+            ) : (
         
-      
-      ) : (
-        
-        <Tab.Navigator>
-          <Tab.Screen name="Dashboard" component={Dashboard} />
-          <Tab.Screen name="Profile" component={Profile} />
-        </Tab.Navigator>
-        )}
+              <Tab.Navigator>
+                <Tab.Screen name="Dashboard" component={Dashboard} />
+                <Tab.Screen name="Profile" component={Profile} />
+              </Tab.Navigator>
+            )}
       </NavigationContainer> 
     </SafeAreaView>
     </Provider>
-    </AuthContext.Provider>
+
     <StatusBar style="dark" />
   </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+})
+
+export default App;

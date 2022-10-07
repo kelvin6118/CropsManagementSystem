@@ -12,10 +12,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
 import "./styles"
-import DashBoard from './pages/DashBoard';
+import DashBoard from './screens/DashBoard/DashBoard';
 import Login from "./screens/Login";
 import Register from './screens/Register';
-import Dashboard from './screens/Dashboard';
 import Profile from "./screens/Profile";
 
 const Tab = createMaterialTopTabNavigator();
@@ -111,9 +110,8 @@ const App = ({ navigation }) => {
                   </RootStack.Group>
               </RootStack.Navigator>    
             ) : (
-        
               <Tab.Navigator>
-                <Tab.Screen name="Dashboard" component={Dashboard} />
+                <Tab.Screen name="Dashboard" component={DashBoard} />
                 <Tab.Screen name="Profile" component={Profile} />
               </Tab.Navigator>
             )}

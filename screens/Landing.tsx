@@ -45,7 +45,7 @@ return (
                 <br />
                 <div style={styles.welcomeContainer}>
                 <View style={styles.container} onLayout={onLayoutRootView}>
-                    <Text style={{ fontFamily: "Cormorand Garamond", fontSize: 24}}>
+                    <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 24}}>
                         Do you want to grow your own fruit and vegetables but don't have any outside space or garden? Have a go at windowsill crop-growing!
                     </Text>
                 </View>

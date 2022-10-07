@@ -1,7 +1,7 @@
 import { View, Button, Text } from 'react-native'
 import React from 'react'
-import DashBoardHeader from '../components/DashBoardHeader'
-import DashBoardTracker from '../components/DashBoardTracker'
+import DashBoardHeader from '../../components/DashBoardHeader'
+import DashBoardTracker from '../../components/DashBoardTracker'
 
 
 const DashBoardHome = (props) => {

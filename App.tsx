@@ -11,7 +11,7 @@ import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import Login from "./screens/Login";
 import Register from './screens/Register';
-import Dashboard from './screens/Dashboard';
+// import Dashboard from './screens/Dashboard';
 import Profile from "./screens/Profile";
 
 const Tab = createMaterialTopTabNavigator();

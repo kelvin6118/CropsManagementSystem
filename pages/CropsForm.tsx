@@ -30,7 +30,13 @@ const CropsForm: React.FC<Props> = (navigation) => {
   return (
     <View className='flex justify-center p-5 space-y-5'>
       <Text className='text-2xl w-auto pb-5'>Add New Crop</Text>
-      <SelectList setSelected={setCrop} data={crops} onSelect={() => alert(crop)} />
+      <SelectList 
+      setSelected={setCrop}
+      data={crops}
+      onSelect={() => alert(crop)}
+      placeholder={"Add a new Crop"}
+      searchPlaceholder={"Search Crops"}
+      />
 
       <View className='flex flex-row space-x-3 justify-center'>
         <Text className='text-xl align-middle'>Sown</Text>

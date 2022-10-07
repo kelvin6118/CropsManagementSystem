@@ -9,10 +9,12 @@ const Stack = createStackNavigator();
 const DashBoard = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Calender">
+      <Stack.Screen name="DashBoard - Home">
         {props => <DashBoardHome navigation={props.navigation}/>}
       </Stack.Screen>
-      <Stack.Screen name="Form" component={(props)=><CropsForm/>} />
+      <Stack.Screen name="DashBoard - Add Crops">
+        {props => <CropsForm navigation={props.navigation}/>}
+      </Stack.Screen>
     </Stack.Navigator>
   )
 }

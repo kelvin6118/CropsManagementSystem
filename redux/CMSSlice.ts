@@ -7,8 +7,8 @@ export interface UserState {
 
 const initialState = { value: "tester" } as UserState
 
-export const userSlice = createSlice({
-    name: 'user',
+export const CMSSlice = createSlice({
+    name: 'cms',
     initialState,
     reducers:{
      loggedIn(state, action: PayloadAction<boolean>) {
@@ -17,6 +17,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const {loggedIn} = userSlice.actions
+export const {loggedIn} = CMSSlice.actions
 
-export default userSlice.reducer
+export default CMSSlice.reducer

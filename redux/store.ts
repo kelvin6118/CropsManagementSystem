@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cmsReducer from './userSlice'
+import cmsReducer from './CMSSlice'
 // ...
 
 export const store = configureStore({

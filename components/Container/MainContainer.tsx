@@ -5,7 +5,7 @@ const MainContainer: React.FC<IProps> = ({ children }) => {
   return (
     <>
     <ScrollView style={styles.scrollView}>
-      <ImageBackground source={require("../../assets/bg.png")} style={styles.image}>
+      <ImageBackground source={require("../../assets/images/bg.png")} style={styles.image}>
         <SafeAreaView style={styles.container}>
           {children}
         </SafeAreaView>

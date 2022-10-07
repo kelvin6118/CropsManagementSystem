@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+.custom-button {
+    height: 40px;
+    background-color: #6CC4A1;
+    width: 100%;
+    padding: 30px;
+    margin: 10px;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.custom-button-text, p {
+    text-align: center;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+}

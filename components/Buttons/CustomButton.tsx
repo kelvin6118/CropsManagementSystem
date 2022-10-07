@@ -1,6 +1,6 @@
 import { Text, Pressable, StyleSheet } from "react-native";
 import { styled } from 'nativewind';
-
+import "./CustomButton.css";
 
 const StyledText = styled(Text)
 import React from "react";
@@ -13,11 +13,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   buttonText,
 }) => {
   return (
-    <Pressable onPress={() => {onPress; buttonClassNames}}>
-      <StyledText className={`${textClassNames}`}>
-        {buttonText}
-      </StyledText>
-    </Pressable>
+    
+      <Pressable className="custom-button" onPress={() => {onPress; buttonClassNames}}>
+        <StyledText className="{`${textClassNames}`} custom-button-text">
+          {buttonText}
+        </StyledText>
+      </Pressable>
+   
   );
 };
 

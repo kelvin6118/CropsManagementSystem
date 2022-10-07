@@ -1,15 +1,13 @@
-import { StyleSheet, View, Image, Text, Dimensions, SafeAreaView } from "react-native";
+import { StyleSheet, View, Image, Text, Dimensions, SafeAreaView, Button } from "react-native";
 import React, { useEffect, useCallback } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import MainContainer from "../components/Container/MainContainer";
 import CustomButton from "../components/Buttons/CustomButton";
-import { Provider } from 'react-redux';
-import { store } from "../redux/store";
 
 
-function Landing() {
+function Landing(props) {
     const [fontsLoaded] = useFonts({
         'Cormorant Garamond': require("../assets/fonts/CormorantGaramond-Regular.ttf")
     });
@@ -35,32 +33,28 @@ return (
     <SafeAreaView style={styles.container}>
         <View style={styles.container}>
             <MainContainer>
-                <div className="flex items-center" style={styles.logoContainer}>
+                <View className="flex items-center" style={styles.logoContainer}>
 
                 <Image
                     style={styles.logo} 
                     source={require("../assets/Grow your own.png")}
                     />
-                </div>
-                <br />
-                <div style={styles.welcomeContainer}>
+                </View>
+                <View style={styles.welcomeContainer}>
                 <View style={styles.container} onLayout={onLayoutRootView}>
-                    <Text style={{ fontFamily: "Cormorand Garamond", fontSize: 24}}>
+                    <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 24}}>
                         Do you want to grow your own fruit and vegetables but don't have any outside space or garden? Have a go at windowsill crop-growing!
                     </Text>
                 </View>
-                </div>
-                <Provider store={store}>
-                <NavigationContainer>
+                </View>    
                 <View style={styles.buttonContainer}>
-                    <CustomButton onPress={() => navigation.navigate('Login')}
-                        buttonText="Login" /> 
-                        <hr />
-                    <CustomButton onPress={() => navigation.navigate('Register')}
-                        buttonText="Register" /> 
+                    <Button 
+                    onPress={() => props.navigation.navigate('Login')}
+                        title="Login" /> 
+
+                    <Button onPress={() => props.navigation.navigate('Register')}
+                        title="Register" /> 
                 </View>
-                </NavigationContainer>
-                </Provider>
             </MainContainer>
         </View>
     </SafeAreaView>

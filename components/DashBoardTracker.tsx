@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Login = () => {
+const DashBoardTracker = () => {
   return (
     <View>
-      <Text>Login</Text>
+      <Text>DashBoardTracker</Text>
     </View>
   )
 }
 
-export default Login
+export default DashBoardTracker

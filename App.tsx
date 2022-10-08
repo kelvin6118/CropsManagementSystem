@@ -2,7 +2,6 @@ import React, { createContext, useState, useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { styled } from 'nativewind';
-import Landing from './screens/Landing';
 import * as SecureStore from 'expo-secure-store';
 const StyledView = styled(View)
 const StyledText = styled(Text)
@@ -12,10 +11,11 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
 import "./styles"
-import DashBoard from './screens/DashBoard/DashBoard';
+import Landing from './screens/Landing';
 import Login from "./screens/Login";
 import Register from './screens/Register';
-// import Dashboard from './screens/Dashboard';
+
+// import Dashboard from './screens/DashBoard/DashBoard';
 // import Profile from "./screens/Profile";
 
 const Tab = createMaterialTopTabNavigator();
@@ -103,9 +103,8 @@ const App = ({ navigation }) => {
         <NavigationContainer>
             {state.userToken == null ? (
               <Stack.Navigator>
-                <Stack.Screen name="Landing" >
-                  {props => <Landing navigation={props.navigation}/>}
-                  </Stack.Screen>
+                <Stack.Screen name="Landing" component={Landing} />
+                  
                   {//<RootStack.Group screenOptions={{ presentation: 'modal' }}>
                   }
                     <Stack.Screen name="Login" component={Login} />
@@ -115,7 +114,7 @@ const App = ({ navigation }) => {
               </Stack.Navigator> 
             ) : (
               <Tab.Navigator>
-                {/* <Tab.Screen name="Dashboard" component={Dashboard} />
+                {/* <Tab.Screen name="Dashboard" component={DashBoard} />
                 <Tab.Screen name="Profile" component={Profile} /> */}
               </Tab.Navigator>
             )}

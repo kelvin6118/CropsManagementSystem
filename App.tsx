@@ -11,13 +11,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-import Login from "./screens/Login";
-import Register from './screens/Register';
-import Dashboard from './screens/Dashboard';
-import Profile from "./screens/Profile";
+// import Login from "./screens/Login";
+// import Register from './screens/Register';
+// import Dashboard from './screens/Dashboard';
+// import Profile from "./screens/Profile";
 
 const Tab = createMaterialTopTabNavigator();
-const RootStack = createStackNavigator();
+const Stack = createStackNavigator();
 // const AuthContext = React.createContext();
 
 const App = ({ navigation }) => {
@@ -101,18 +101,18 @@ const App = ({ navigation }) => {
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
             {state.userToken == null ? (
-              <RootStack.Navigator>
-                <RootStack.Screen name="Landing" component={Landing} />
-                  <RootStack.Group screenOptions={{ presentation: 'modal' }}>
-                    <RootStack.Screen name="Login" component={Login} />
-                    <RootStack.Screen name="Register" component={Register} />
-                  </RootStack.Group>
-              </RootStack.Navigator>    
+              <Stack.Navigator>
+                <Stack.Screen name="Landing" component={Landing} />
+                  {/* <Stack.Group screenOptions={{ presentation: 'modal' }}>
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Register" component={Register} />
+                  </Stack.Group> */}
+              </Stack.Navigator>    
             ) : (
         
               <Tab.Navigator>
-                <Tab.Screen name="Dashboard" component={Dashboard} />
-                <Tab.Screen name="Profile" component={Profile} />
+                {/* <Tab.Screen name="Dashboard" component={Dashboard} />
+                <Tab.Screen name="Profile" component={Profile} /> */}
               </Tab.Navigator>
             )}
       </NavigationContainer> 

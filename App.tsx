@@ -11,8 +11,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-// import Login from "./screens/Login";
-// import Register from './screens/Register';
+import Login from "./screens/Login";
+import Register from './screens/Register';
 // import Dashboard from './screens/Dashboard';
 // import Profile from "./screens/Profile";
 
@@ -103,10 +103,10 @@ const App = ({ navigation }) => {
             {state.userToken == null ? (
               <Stack.Navigator>
                 <Stack.Screen name="Landing" component={Landing} />
-                  {/* <Stack.Group screenOptions={{ presentation: 'modal' }}>
+                  <Stack.Group screenOptions={{ presentation: 'modal' }}>
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="Register" component={Register} />
-                  </Stack.Group> */}
+                  </Stack.Group>
               </Stack.Navigator>    
             ) : (
         

@@ -7,7 +7,7 @@ import MainContainer from "../components/Container/MainContainer";
 import CustomButton from "../components/Buttons/CustomButton";
 
 
-function Landing(props) {
+function Landing() {
     const [fontsLoaded] = useFonts({
         'Cormorant Garamond': require("../assets/fonts/CormorantGaramond-Regular.ttf")
     });

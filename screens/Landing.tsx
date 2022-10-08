@@ -1,13 +1,13 @@
 import { StyleSheet, View, Image, Text, Dimensions, SafeAreaView, Button } from "react-native";
 import React, { useEffect, useCallback } from "react";
-import { NavigationContainer } from '@react-navigation/native';
+import { Link } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import MainContainer from "../components/Container/MainContainer";
 import CustomButton from "../components/Buttons/CustomButton";
 
 
-function Landing(props) {
+function Landing() {
     const [fontsLoaded] = useFonts({
         'Cormorant Garamond': require("../assets/fonts/CormorantGaramond-Regular.ttf")
     });
@@ -48,12 +48,13 @@ return (
                 </View>
                 </View>    
                 <View style={styles.buttonContainer}>
-                    <Button 
-                    onPress={() => props.navigation.navigate('Login')}
-                        title="Login" /> 
-
-                    <Button onPress={() => props.navigation.navigate('Register')}
-                        title="Register" /> 
+                    <Link to={{ screen: "Login" }} style={[styles.button, styles.text]}>
+                            Login
+                    </Link>
+                    
+                    <Link to={{ screen: "Register" }} style={[styles.button, styles.text]}>
+                            Create an Account
+                    </Link> 
                 </View>
             </MainContainer>
         </View>
@@ -63,8 +64,7 @@ return (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: "center",
-      
+      justifyContent: "center",      
     },
     logoContainer: {
         display: "flex",
@@ -91,38 +91,33 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         opacity: 0.9,
     },
-    textContainer: {
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        padding: 0,
-        backgroundColor: "#fff",
-        opacity: 0.9,
-    },
     buttonContainer: {
         width: "100%",
         padding: 20,
     },
     button: {
         backgroundColor: "#6CC4A1",
-        width: "80%",
-        height: 40,
-        padding: 5,
+        width: "100%",
+        height: 50,
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 10,
+        justifyContent: "space-between",
+        shadowColor: "green",
+        shadowOffset: {width: 2, height: 2},
     },
-    buttonOpen: {
-        backgroundColor: "#F194FF",
-      },
-      buttonClose: {
-        backgroundColor: "#2196F3",
-      },
     wrapperCustom: {
         borderRadius: 8,
         padding: 6
     },
-    textStyle: {
+    text: {
+        fontFamily: "Cormorant Garamond",
+        fontSize: 26,
+        letterSpacing: 1.4,
+        textShadowColor: "#000",
+        textShadowOffset: {width: 2, height: 2},
         color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
+        fontWeight: "bold"
       },
       modalText: {
         marginBottom: 15,

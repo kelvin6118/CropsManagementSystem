@@ -14,7 +14,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   return (
     <Pressable onPress={() => {onPress; buttonClassNames}} style={[styles.button]}>
-      <StyledText className={`${textClassNames}`} style={{ fontFamily: "Cormorand Garamond", fontSize: 24}}>
+      <StyledText className={`${textClassNames}`} style={{ fontFamily: "Cormorant Garamond", fontSize: 24}}>
         {buttonText}
       </StyledText>
     </Pressable>

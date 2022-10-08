@@ -9,8 +9,10 @@ const StyledText = styled(Text)
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { store } from './redux/store';
-import { Provider } from 'react-redux';
+import {store} from './redux/store';
+import {Provider} from 'react-redux';
+import "./styles"
+import DashBoard from './screens/DashBoard/DashBoard';
 import Login from "./screens/Login";
 import Register from './screens/Register';
 // import Dashboard from './screens/Dashboard';
@@ -96,26 +98,28 @@ const App = ({ navigation }) => {
   );
   return (
     <>
-    
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
             {state.userToken == null ? (
               <Stack.Navigator>
-                <Stack.Screen name="Landing" component={Landing} />
-                  <Stack.Group screenOptions={{ presentation: 'modal' }}>
+                <Stack.Screen name="Landing" >
+                  {props => <Landing navigation={props.navigation}/>}
+                  </Stack.Screen>
+                  {//<RootStack.Group screenOptions={{ presentation: 'modal' }}>
+                  }
                     <Stack.Screen name="Login" component={Login} />
                     <Stack.Screen name="Register" component={Register} />
-                  </Stack.Group>
-              </Stack.Navigator>    
+                  {//</RootStack.Navigator>
+                  }
+              </Stack.Navigator> 
             ) : (
-        
               <Tab.Navigator>
                 {/* <Tab.Screen name="Dashboard" component={Dashboard} />
                 <Tab.Screen name="Profile" component={Profile} /> */}
               </Tab.Navigator>
             )}
-      </NavigationContainer> 
+      </NavigationContainer>
     </SafeAreaView>
     </Provider>
 

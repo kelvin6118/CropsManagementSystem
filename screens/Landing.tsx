@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Text, Dimensions, SafeAreaView, Button, Pressable } from "react-native";
+import { StyleSheet, View, Image, Text, Dimensions, SafeAreaView, Button } from "react-native";
 import React, { useEffect, useCallback } from "react";
 import { Link } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -8,7 +8,6 @@ import CustomButton from "../components/Buttons/CustomButton";
 
 
 function Landing(props) {
-    // const { onPress, title = 'Login' } = props;
     const [fontsLoaded] = useFonts({
         'Cormorant Garamond': require("../assets/fonts/CormorantGaramond-Regular.ttf")
     });

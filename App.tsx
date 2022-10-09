@@ -14,6 +14,7 @@ import "./styles"
 import Landing from './screens/Landing';
 import Login from "./screens/Login";
 import Register from './screens/Register';
+import Info from './screens/Info';
 
 // import Dashboard from './screens/DashBoard/DashBoard';
 // import Profile from "./screens/Profile";
@@ -97,14 +98,17 @@ const App = ({ navigation }) => {
     []
   );
   return (
-    <>
+  <>
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
+      <View>
+        <StatusBar style="dark" />
+      </View>
         <NavigationContainer>
             {state.userToken == null ? (
               <Stack.Navigator>
                 <Stack.Screen name="Landing" component={Landing} />
-                  
+                <Stack.Screen name="Info" component={Info} />
                   {//<RootStack.Group screenOptions={{ presentation: 'modal' }}>
                   }
                     <Stack.Screen name="Login" component={Login} />
@@ -121,9 +125,8 @@ const App = ({ navigation }) => {
       </NavigationContainer>
     </SafeAreaView>
     </Provider>
+    </>
 
-    <StatusBar style="dark" />
-  </>
   );
 }
 

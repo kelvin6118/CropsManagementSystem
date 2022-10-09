@@ -1,4 +1,7 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "jsxFragmentFactory": "Fragment",
+    "jsx": "react",
+  },
   "extends": "expo/tsconfig.base"
 }

@@ -37,12 +37,12 @@ return (
 
                 <Image
                     style={styles.logo} 
-                    source={require("../assets/Grow your own.png")}
+                    source={require("../assets/images/Grow your own.png")}
                     />
                 </View>
                 <View style={styles.welcomeContainer}>
                 <View style={styles.container} onLayout={onLayoutRootView}>
-                    <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 24}}>
+                    <Text style={{ fontFamily: "Cormorant Garamond", fontSize: 26}}>
                         Do you want to grow your own fruit and vegetables but don't have any outside space or garden? Have a go at windowsill crop-growing!
                     </Text>
                 </View>
@@ -55,6 +55,11 @@ return (
                     <Link to={{ screen: "Register" }} style={[styles.button, styles.text]}>
                             Create an Account
                     </Link> 
+
+                    <Link to={{ screen: "Info" }} style={[styles.button, styles.text]}>
+                            Info
+                    </Link>
+
                 </View>
             </MainContainer>
         </View>

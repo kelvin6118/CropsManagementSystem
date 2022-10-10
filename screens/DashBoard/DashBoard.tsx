@@ -7,8 +7,19 @@ import CropsForm from './CropsForm';
 const Stack = createStackNavigator();
 
 const DashBoard = () => {
+
+  let nav = 0;
   const weekdays:string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dt = new Date();
+    //navigate to next month by nav++
+    if (nav !== 0){
+      dt.setMonth(new Date().getMonth() + nav);
+    }
+  
+    //navigate to next month by nav--
+    if (nav === -1){
+      dt.setMonth(new Date().getMonth() - 1);
+    }
 
   const day = dt.getDate();
   const month = dt.getMonth();
@@ -31,8 +42,10 @@ const DashBoard = () => {
 
   let daySquareDate = `${date}/${mon}/${year}`;
 
-  console.log(daySquareDate)
-  
+
+
+  console.log(month)
+
   return (
     <Stack.Navigator>
       <Stack.Screen name="DashBoard - Home">

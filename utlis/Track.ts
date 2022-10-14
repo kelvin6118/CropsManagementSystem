@@ -1,9 +1,9 @@
 import { Track } from "../type/track";
-import { apiURL } from "./apiURL";
+import { webApiURL } from "./apiURL";
 
 export const createTrack = async (data: Track) => {
 
-    const response = await fetch(`${apiURL}/track/Create`, {
+    const response = await fetch(`${webApiURL}/track/Create`, {
         headers: {"Content-Type": "application/json" ,},
         method: 'POST', 
         body: JSON.stringify(data)
@@ -15,8 +15,13 @@ export const createTrack = async (data: Track) => {
 
 export const getUserTracks = async (id: number) => {
 
-    const response = await fetch(`${apiURL}/track/Get/${id}`);
+    return await fetch(`${webApiURL}/track/Get/${id}`,{
+        headers: {"Content-Type": "application/json" ,}
+    }).then((result)=>{
+        return result.json()
+    }).catch((err)=>{
+        console.log('An error occure: ' + err.message);
+        throw err;
+    })
 
-    const result = await response.json();
-    return result;
 }

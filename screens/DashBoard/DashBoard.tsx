@@ -14,9 +14,13 @@ const DashBoard = () => {
 
 
   useEffect(()=>{
+    
     getUserTracks(1).then((t)=>{
       setTracks(t);
+    }).catch((err)=>{
+      console.log(err)
     })
+
     setLoading(false);
   },[])
 

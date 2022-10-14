@@ -1,24 +1,29 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useState } from 'react'
 import SelectList from 'react-native-dropdown-select-list'
 import Checkbox from 'expo-checkbox';
+import {createTrack} from '../../utlis/Track'
+import {Track} from '../../type/track'
 
 type Props ={
   navigation: unknown;
 }
 
 const CropsForm: React.FC<Props> = (navigation) => {
-  const [crop, setCrop] = useState<string>();
-  const [sown, setSown] = useState<boolean>(false);
-  const [water, setWater] = useState<boolean>(false);
-  const [fed, setFed] = useState<boolean>(false);
+  const [crop, setCrop] = useState<string>(null);
+  const [sown, setSown] = useState<Date>(null);
+  const [water, setWater] = useState<Date>(null);
+  const [feed, setFeed] = useState<Date>(null);
+  const [fed, setFed] = useState<Date[]>();
+
+  const today = Date.now();
+  const date = new Date(today);
 
   const crops = [
     {key:"1", value:"Apple"},
     {key:"2", value:"Banana"},
     {key:"3", value:"Orange"}
   ];
-
   
   const styles = StyleSheet.create({
     checkbox: {
@@ -27,13 +32,30 @@ const CropsForm: React.FC<Props> = (navigation) => {
     },
   });
 
+  const data: Track = {
+    user_id: 1,
+    crop_id: crop,
+    sown: sown,
+    watered: water,
+    fed: fed
+  }
+
+  const handleSubmit = () => {
+    if(crop === null){
+      alert("please select a crop")
+    }else{
+      createTrack(data);
+      console.log(data);
+    }
+  }
+  
+
   return (
     <View className='flex justify-center p-5 space-y-5'>
       <Text className='text-2xl w-auto pb-5'>Add New Crop</Text>
       <SelectList 
       setSelected={setCrop}
       data={crops}
-      onSelect={() => alert(crop)}
       placeholder={"Add a new Crop"}
       searchPlaceholder={"Search Crops"}
       />
@@ -42,8 +64,14 @@ const CropsForm: React.FC<Props> = (navigation) => {
         <Text className='text-xl align-middle'>Sown</Text>
         <Checkbox
           style={styles.checkbox}
-          value={sown}
-          onValueChange={setSown}
+          onValueChange={(value)=>{
+            if(value === true){
+              setSown(date);
+            }
+            else{
+              setSown(null);
+            }
+          }}
           color={sown ? '#4630EB' : undefined}
         />
       </View>
@@ -52,8 +80,14 @@ const CropsForm: React.FC<Props> = (navigation) => {
         <Text className='text-xl'>Water</Text>
         <Checkbox
           style={styles.checkbox}
-          value={water}
-          onValueChange={setWater}
+          onValueChange={(value)=>{
+            if(value === true){
+              setWater(date);
+            }
+            else{
+              setWater(null);
+            }
+          }}
           color={water ? '#4630EB' : undefined}
         />
       </View>
@@ -61,11 +95,18 @@ const CropsForm: React.FC<Props> = (navigation) => {
         <Text className='text-xl'>Fed</Text>
         <Checkbox
           style={styles.checkbox}
-          value={fed}
-          onValueChange={setFed}
-          color={fed ? '#4630EB' : undefined}
+          onValueChange={(value)=>{
+            if(value === true){
+              setFeed(date);
+            }
+            else{
+              setFeed(null);
+            }
+          }}
+          color={feed ? '#4630EB' : undefined}
         />
       </View>
+      <Button title="Create" onPress={handleSubmit}/>
     </View>
   )
 

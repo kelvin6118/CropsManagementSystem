@@ -100,7 +100,7 @@ const App = ({ navigation }) => {
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-            {state.userToken == null ? (
+            {state.userToken == true ? (
               <Stack.Navigator>
                 <Stack.Screen name="Landing" >
                   {props => <Landing navigation={props.navigation}/>}

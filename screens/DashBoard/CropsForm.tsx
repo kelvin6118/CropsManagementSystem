@@ -6,15 +6,16 @@ import {createTrack} from '../../utlis/Track'
 import {Track} from '../../type/track'
 
 type Props ={
-  navigation: unknown;
+  
 }
 
-const CropsForm: React.FC<Props> = (navigation) => {
+const CropsForm: React.FC<Props> = () => {
   const [crop, setCrop] = useState<string>(null);
   const [sown, setSown] = useState<Date>(null);
   const [water, setWater] = useState<Date>(null);
   const [feed, setFeed] = useState<Date>(null);
-  const [fed, setFed] = useState<Date[]>();
+  const [fed, setFed] = useState<Date[]>([]);
+  const [harvest, setHarvest] = useState<Date[]>([]);
 
   const today = Date.now();
   const date = new Date(today);
@@ -37,15 +38,18 @@ const CropsForm: React.FC<Props> = (navigation) => {
     crop_id: crop,
     sown: sown,
     watered: water,
-    fed: fed
+    fed: [...fed, feed]
   }
 
   const handleSubmit = () => {
     if(crop === null){
       alert("please select a crop")
     }else{
-      createTrack(data);
-      console.log(data);
+      createTrack(data).then(
+        (r) => {
+          console.log(r);
+        }
+      )
     }
   }
   

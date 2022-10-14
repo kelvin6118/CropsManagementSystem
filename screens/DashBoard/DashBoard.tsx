@@ -13,7 +13,6 @@ const DashBoard = () => {
   const [tracks, setTracks] = useState<Track[]>();
 
 
-
   useEffect(()=>{
     getUserTracks(1).then((t)=>{
       setTracks(t);
@@ -29,10 +28,10 @@ const DashBoard = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="DashBoard - Home">
-        {props => <DashBoardHome navigation={props.navigation}/>}
+        {props => <DashBoardHome tracks={tracks} navigation={props.navigation}/>}
       </Stack.Screen>
       <Stack.Screen name="DashBoard - Add Crops">
-        {props => <CropsForm navigation={props.navigation}/>}
+        {()=><CropsForm/>}
       </Stack.Screen>
     </Stack.Navigator>
   )

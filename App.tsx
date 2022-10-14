@@ -98,7 +98,7 @@ const App = ({ navigation }) => {
     []
   );
   return (
-  <>
+  
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
       <View>
@@ -125,7 +125,7 @@ const App = ({ navigation }) => {
       </NavigationContainer>
     </SafeAreaView>
     </Provider>
-    </>
+    
 
   );
 }

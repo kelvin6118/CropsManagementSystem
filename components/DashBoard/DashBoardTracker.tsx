@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import CropsCard from './CropsCard'
 import {Track} from '../../type/track'
 
@@ -8,9 +8,13 @@ type Props = {
 }
 
 const DashBoardTracker: React.FC<Props> = ({tracks}) => {
+  const [trackID, setTrackID] = useState<number>();
+
+  console.log(trackID);
+
   return (
     <View className='flex flex-row flex-wrap justify-evenly w-screen'>
-      {tracks?.map(t => <CropsCard crop_id={t.crop_id}/>)}
+      {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
     </View>
   )
 }

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import SelectList from 'react-native-dropdown-select-list'
 import Checkbox from 'expo-checkbox';
@@ -11,11 +11,10 @@ type Props ={
 
 const CropsForm: React.FC<Props> = () => {
   const [crop, setCrop] = useState<string>(null);
+  const [name, setName] = useState<string>(null);
   const [sown, setSown] = useState<Date>(null);
   const [water, setWater] = useState<Date>(null);
   const [feed, setFeed] = useState<Date>(null);
-  const [fed, setFed] = useState<Date[]>([]);
-  const [harvest, setHarvest] = useState<Date[]>([]);
 
   const today = Date.now();
   const date = new Date(today);
@@ -35,10 +34,11 @@ const CropsForm: React.FC<Props> = () => {
 
   const data: Track = {
     user_id: 1,
+    name: name,
     crop_id: crop,
     sown: sown,
     watered: water,
-    fed: [...fed, feed]
+    fed: feed!=null? [feed]: []
   }
 
   const handleSubmit = () => {
@@ -52,6 +52,8 @@ const CropsForm: React.FC<Props> = () => {
       )
     }
   }
+
+  console.log(name)
   
 
   return (
@@ -63,6 +65,18 @@ const CropsForm: React.FC<Props> = () => {
       placeholder={"Add a new Crop"}
       searchPlaceholder={"Search Crops"}
       />
+
+      <View className='flex flex-row space-x-3 justify-center'>
+        <Text className='text-xl align-middle'>Plant Name</Text>
+        <TextInput
+          placeholder='Plant Name'
+          maxLength={50}
+          className=''
+          onChangeText={(text)=>{
+              setName(text);
+          }}
+        />
+      </View>
 
       <View className='flex flex-row space-x-3 justify-center'>
         <Text className='text-xl align-middle'>Sown</Text>

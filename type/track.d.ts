@@ -3,8 +3,8 @@ export interface Track{
     name: string,
     user_id: number,
     crop_id: string,
-    sown: Date,
-    watered: Date,
-    fed?: Date[],
-    harvested?: Date[]
+    sown: string,
+    watered: string,
+    fed?: string[],
+    harvested?: string[]
 }

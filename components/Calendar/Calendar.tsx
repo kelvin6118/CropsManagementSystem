@@ -3,10 +3,19 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import Day from './Day';
 import Weekday from './Weekday';
 
-const Calendar = () => {
+type Props = {
+  sown: string,
+  watered: string,
+  fed?: string[],
+  harvest?: Date[],
+  selected: Boolean
+}
+
+const Calendar: React.FC<Props> = ({sown, watered, fed, harvest, selected}) => {
     const [nav, setNav] = useState<number>(0);
-    const weekdaysWeb = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const weekdaysMob = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const Month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
     
     const [daySqure,setDaySqure] = useState<JSX.Element[]>([]);
 
@@ -24,27 +33,34 @@ const Calendar = () => {
     const month = dt.getMonth() ;
     const year = dt.getFullYear();
   
-    const firstDayOfMonth = new Date(year, month, 1);
+    const firstDayOfMonth = new Date(year, month, 1).toDateString();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    const dateString = firstDayOfMonth.toLocaleString('en-gb', {  
-      weekday: 'long',
-      year: "numeric",
-      month: 'numeric',
-      day: 'numeric'
-    })
-
-    let paddingDays = weekdaysWeb.indexOf(dateString.split(', ')[0]);
-    if(paddingDays === -1){
-      paddingDays = weekdaysMob.indexOf(dateString.split(' ')[0]);
-    }
+    let  paddingDays = weekdays.indexOf(firstDayOfMonth.split(' ')[0]);
+    
 
     const renderDay = () => {
       setDaySqure([]);
         for(let i = 0; i < daysInMonth + paddingDays; i++){
             if(i > paddingDays-1){
               setDaySqure((current)=>{
-                return [...current, <Day day={i-paddingDays+1}/>]
+                const day = new Date(`${year}-${month+1}-${i-paddingDays+1}`).toDateString();
+                let daySown:Boolean = false;
+                let dayWatered:Boolean = false;
+                let dayFed:Boolean = false;
+                let dayHarvested:Boolean = false;
+                console.log(sown, day)
+                if(day === sown){
+                  daySown = true;
+                }
+                if(day === watered){
+                  dayWatered = true;
+                }
+                if(fed?.includes(day) === true){
+                  dayFed = true;
+                }
+
+                return [...current, <Day day={i-paddingDays+1} sown={daySown} watered={dayWatered} fed={dayFed}/>]
               })
             }else{
               setDaySqure((current)=>{
@@ -62,7 +78,7 @@ const Calendar = () => {
     <View className='w-full flex'>
         <Text>{month+1} {year}</Text>
         <View className='w-full flex flex-row h-[50px]'>
-            {weekdaysMob.map(w=>(<Weekday weekday={w}/>))}
+            {weekdays.map(w=>(<Weekday weekday={w}/>))}
         </View>
 
         <View className='flex flex-wrap flex-row'>{

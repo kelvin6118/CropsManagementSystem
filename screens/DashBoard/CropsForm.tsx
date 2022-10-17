@@ -12,12 +12,12 @@ type Props ={
 const CropsForm: React.FC<Props> = () => {
   const [crop, setCrop] = useState<string>(null);
   const name = useRef<HTMLInputElement>();
-  const [sown, setSown] = useState<Date>(null);
-  const [water, setWater] = useState<Date>(null);
-  const [feed, setFeed] = useState<Date>(null);
+  const [sown, setSown] = useState<string>(null);
+  const [water, setWater] = useState<string>(null);
+  const [feed, setFeed] = useState<string>(null);
 
   const today = Date.now();
-  const date = new Date(today);
+  const date = new Date(today).toDateString();
 
   const crops = [
     {key:"1", value:"Apple"},

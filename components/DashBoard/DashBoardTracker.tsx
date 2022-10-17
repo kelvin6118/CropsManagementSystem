@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CropsCard from './CropsCard'
 import {Track} from '../../type/track'
 import Calendar from '../Calendar/Calendar'
@@ -10,8 +10,25 @@ type Props = {
 
 const DashBoardTracker: React.FC<Props> = ({tracks}) => {
   const [trackID, setTrackID] = useState<number>();
+  const [sown, setSown] = useState<string>();
+  const [watered, setWater] = useState<string>();
+  const [fed, setFed] = useState<string[]>();
+  const [selected, setSelected] = useState<Boolean>(false);
 
-  console.log(trackID);
+
+
+  useEffect(()=>{
+    const selectedTrack = tracks?.find(t => t.track_id===trackID);
+    if(selectedTrack !== undefined){
+      setSown(selectedTrack.sown);
+      setWater(selectedTrack.watered);
+      setFed(selectedTrack.fed);
+      if(selected === false){
+        setSelected(true);
+      }
+  }
+  },[trackID])
+
 
   return (
     <View>
@@ -19,7 +36,7 @@ const DashBoardTracker: React.FC<Props> = ({tracks}) => {
       {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
     </View>
     <View className='w-full'>
-      <Calendar/>
+      <Calendar sown={sown} watered={watered} fed={fed} selected={selected}/>
     </View>
     </View>
   )

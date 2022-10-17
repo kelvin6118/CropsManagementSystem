@@ -26,14 +26,20 @@ const DashBoard = () => {
 
   console.log(tracks);
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="DashBoard - Home">
-        {props => <DashBoardHome tracks={tracks} navigation={props.navigation}/>}
-      </Stack.Screen>
-      <Stack.Screen name="DashBoard - Add Crops">
-        {()=><CropsForm/>}
-      </Stack.Screen>
-    </Stack.Navigator>
+    
+      <Stack.Navigator>
+
+        <Stack.Screen name="DashBoard - Home">
+          
+          {props => loading? false : <View className='overflow-scroll h-screen'><DashBoardHome tracks={tracks} navigation={props.navigation}/></View>}
+          
+        </Stack.Screen>
+        <Stack.Screen name="DashBoard - Add Crops">
+          {()=><CropsForm/>}
+        </Stack.Screen>
+        
+      </Stack.Navigator>
+    
   )
 }
 

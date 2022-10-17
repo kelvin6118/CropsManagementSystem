@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import DashBoardHome from './DashBoardHome'
 import { createStackNavigator } from '@react-navigation/stack';
@@ -28,11 +28,8 @@ const DashBoard = () => {
   return (
     
       <Stack.Navigator>
-
         <Stack.Screen name="DashBoard - Home">
-          
-          {props => loading? false : <View className='overflow-y-scroll h-full'><DashBoardHome tracks={tracks} navigation={props.navigation}/></View>}
-          
+          {props => loading? false : <ScrollView className='overflow-y-scroll h-full'><DashBoardHome tracks={tracks} navigation={props.navigation}/></ScrollView>}
         </Stack.Screen>
         <Stack.Screen name="DashBoard - Add Crops">
           {()=><CropsForm/>}

@@ -31,7 +31,7 @@ const DashBoard = () => {
 
         <Stack.Screen name="DashBoard - Home">
           
-          {props => loading? false : <View className='overflow-scroll h-screen'><DashBoardHome tracks={tracks} navigation={props.navigation}/></View>}
+          {props => loading? false : <View className='overflow-y-scroll h-full'><DashBoardHome tracks={tracks} navigation={props.navigation}/></View>}
           
         </Stack.Screen>
         <Stack.Screen name="DashBoard - Add Crops">

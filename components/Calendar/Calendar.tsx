@@ -13,7 +13,7 @@ type Props = {
 
 const Calendar: React.FC<Props> = ({sown, watered, fed, harvest, selected}) => {
     const [nav, setNav] = useState<number>(0);
-    const Month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', "Aug", "Sep", "Oct", "Nov", "Dec"];
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     
@@ -49,7 +49,6 @@ const Calendar: React.FC<Props> = ({sown, watered, fed, harvest, selected}) => {
                 let dayWatered:Boolean = false;
                 let dayFed:Boolean = false;
                 let dayHarvested:Boolean = false;
-                console.log(sown, day)
                 if(day === sown){
                   daySown = true;
                 }
@@ -72,11 +71,11 @@ const Calendar: React.FC<Props> = ({sown, watered, fed, harvest, selected}) => {
     }
     useEffect(()=>{
       renderDay()
-    },[nav])
+    },[nav, selected])
 
   return (
-    <View className='w-full flex'>
-        <Text>{month+1} {year}</Text>
+    <View className='w-full flex justify-center align-middle'>
+      <Text className='text-2xl'>{months[month]} {year}</Text>
         <View className='w-full flex flex-row h-[50px]'>
             {weekdays.map(w=>(<Weekday weekday={w}/>))}
         </View>

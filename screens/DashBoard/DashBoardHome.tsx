@@ -11,7 +11,7 @@ type Props = {
 
 const DashBoardHome: React.FC<Props>  = ({tracks, navigation}) => {
   return (
-    <View className='p-5 space-y-5 overflow-scroll'>
+    <View className='p-5 space-y-5'>
       <DashBoardHeader/>
       <View>
         <Button

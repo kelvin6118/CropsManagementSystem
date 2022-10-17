@@ -101,7 +101,7 @@ const App = ({ navigation }) => {
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-            {state.userToken == null ? (
+            {state.userToken == true ? (
               <Stack.Navigator>
                 <Stack.Screen name="Landing" component={Landing} />
                   
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center"
+    
   },
 })
 

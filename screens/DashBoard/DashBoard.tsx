@@ -14,19 +14,15 @@ const DashBoard = () => {
 
 
   useEffect(()=>{
-    
-    getUserTracks(1).then((t)=>{
+    loading? getUserTracks(1).then((t)=>{
       setTracks(t);
     }).catch((err)=>{
       console.log(err)
-    })
+    }).finally(()=>setLoading(false)): false
 
-    setLoading(false);
   },[])
 
-  useEffect(()=>{
-
-  },[loading])
+  useEffect(()=>{},[loading])
 
   console.log(tracks);
   return (

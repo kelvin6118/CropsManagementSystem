@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Button, TextInput } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import SelectList from 'react-native-dropdown-select-list'
 import Checkbox from 'expo-checkbox';
 import {createTrack} from '../../utlis/Track'
@@ -11,7 +11,7 @@ type Props ={
 
 const CropsForm: React.FC<Props> = () => {
   const [crop, setCrop] = useState<string>(null);
-  const [name, setName] = useState<string>(null);
+  const name = useRef<HTMLInputElement>();
   const [sown, setSown] = useState<Date>(null);
   const [water, setWater] = useState<Date>(null);
   const [feed, setFeed] = useState<Date>(null);
@@ -34,7 +34,7 @@ const CropsForm: React.FC<Props> = () => {
 
   const data: Track = {
     user_id: 1,
-    name: name,
+    name: name.current?.value,
     crop_id: crop,
     sown: sown,
     watered: water,
@@ -52,8 +52,6 @@ const CropsForm: React.FC<Props> = () => {
       )
     }
   }
-
-  console.log(name)
   
 
   return (
@@ -72,9 +70,7 @@ const CropsForm: React.FC<Props> = () => {
           placeholder='Plant Name'
           maxLength={50}
           className=''
-          onChangeText={(text)=>{
-              setName(text);
-          }}
+          ref={name}
         />
       </View>
 

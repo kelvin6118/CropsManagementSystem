@@ -9,8 +9,122 @@ import {Track} from '../../type/track'
 const Stack = createStackNavigator();
 
 const DashBoard = () => {
+  const sample: Track[] = [{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  },{
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }, {
+    track_id: 1,
+    user_id: 1,
+    crop_id: "2",
+    name: "sample track",
+    watered: "2022-10-19",
+    sown: "2022-10-19",
+  }]
+
   const [loading, setLoading] = useState<boolean>(true);
-  const [tracks, setTracks] = useState<Track[]>();
+  const [tracks, setTracks] = useState<Track[]>(sample);
 
 
   useEffect(()=>{

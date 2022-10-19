@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CropsCard from './CropsCard'
 import {Track} from '../../type/track'
@@ -32,8 +32,12 @@ const DashBoardTracker: React.FC<Props> = ({tracks}) => {
 
   return (
     <View>
-    <View className='flex flex-row flex-wrap justify-evenly w-full'>
-      {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
+    <View className='h-[35%] bg-slate-600'>
+      <ScrollView className='overflow-y-scroll'>
+        <View className='flex flex-row flex-wrap justify-evenly w-full h-full'>
+          {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
+        </View>
+      </ScrollView>
     </View>
     <View className='w-full'>
       <Calendar sown={sown} watered={watered} fed={fed} selected={selected}/>

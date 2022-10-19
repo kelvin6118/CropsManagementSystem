@@ -10,11 +10,10 @@ const CropsCard: React.FC<Props> = ({track, setTrack}) => {
 
   return (
     <TouchableOpacity
-    className='w-[20%] border-solid border-black border-2 cursor-pointer hover:scale-125 transition duration-200'
+    className='w-[15%] h-[40%] m-5 border-solid border-black border-2 cursor-pointer hover:scale-110 transition duration-200'
     onPress={e=>setTrack(track.track_id)}>
-      <View>
+      <View className='w-full'>
         <Text>CropsCard</Text>
-        <Text>Track id {track.track_id}</Text>
         <Text>Track name {track.name}</Text>
         <Text>Track crop {track.crop_id}</Text>
       </View>

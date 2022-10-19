@@ -12,13 +12,7 @@ type Props = {
 const DashBoardHome: React.FC<Props>  = ({tracks, navigation}) => {
   return (
     <View className='p-5 space-y-5'>
-      <DashBoardHeader/>
-      <View>
-        <Button
-          title="Add Crops"
-          onPress={() => navigation.navigate('DashBoard - Add Crops')}
-        />
-      </View>
+      <DashBoardHeader navigation={navigation}/>
       <DashBoardTracker tracks={tracks}/>
     </View>
   )

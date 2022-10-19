@@ -34,7 +34,6 @@ return (
         <View style={styles.container}>
             <MainContainer>
                 <View className="flex items-center" style={styles.logoContainer}>
-
                 <Image
                     style={styles.logo} 
                     source={require("../assets/Grow your own.png")}

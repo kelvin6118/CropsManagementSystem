@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import CropsCard from './CropsCard'
 import {Track} from '../../type/track'
 import Calendar from '../Calendar/Calendar'
+import MarkerList from './MarkerList'
 
 type Props = {
   tracks: Track[]
@@ -39,7 +40,8 @@ const DashBoardTracker: React.FC<Props> = ({tracks}) => {
         </View>
       </ScrollView>
     </View>
-    <View className='w-full bg-[#6CC4A1]'>
+    <View className='w-full bg-[#6CC4A1] flex h-fit'>
+      <MarkerList/>
       <Calendar sown={sown} watered={watered} fed={fed} selected={selected}/>
     </View>
     </View>

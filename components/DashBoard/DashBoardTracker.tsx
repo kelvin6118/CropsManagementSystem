@@ -33,13 +33,13 @@ const DashBoardTracker: React.FC<Props> = ({tracks}) => {
 
   return (
     <View className='space-y-5'>
-    <View className='h-[35%] bg-[#6CC4A1] '>
-      <ScrollView className='overflow-y-scroll'>
-        <View className='flex flex-row flex-wrap justify-evenly w-full h-full'>
-          {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
-        </View>
-      </ScrollView>
-    </View>
+    <ScrollView 
+    nestedScrollEnabled = {true}
+    className='overflow-y-scroll h-[35%] bg-[#6CC4A1]'>
+      <View className='flex flex-row flex-wrap justify-evenly w-full h-full'>
+        {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
+      </View>
+    </ScrollView>
     <View className='w-full bg-[#6CC4A1] flex h-fit'>
       <MarkerList/>
       <Calendar sown={sown} watered={watered} fed={fed} selected={selected}/>

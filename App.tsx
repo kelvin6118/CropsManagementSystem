@@ -102,7 +102,7 @@ const App = ({ navigation }) => {
         <NavigationContainer>
             {state.userToken == true ? (
               <Stack.Navigator>
-                <Stack.Screen name="Landing" >
+                <Stack.Screen name="Landing">
                   {props => <Landing navigation={props.navigation}/>}
                   </Stack.Screen>
                   {//<RootStack.Group screenOptions={{ presentation: 'modal' }}>

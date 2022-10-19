@@ -11,7 +11,7 @@ type Props = {
 
 const DashBoardHome: React.FC<Props>  = ({tracks, navigation}) => {
   return (
-    <View className='p-5 space-y-5'>
+    <View className='p-5 space-y-5 bg-[#F6E3C5]'>
       <DashBoardHeader navigation={navigation}/>
       <DashBoardTracker tracks={tracks}/>
     </View>

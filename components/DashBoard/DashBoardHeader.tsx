@@ -18,7 +18,7 @@ const DashBoardHeader: React.FC<Props> = ({navigation}) => {
           Hello User!
         </Text>
         <TouchableOpacity
-          className='bg-slate-400 p-2 text-center cursor-pointer hover:scale-125 transition duration-200'
+          className='bg-[#A0D995] p-2 text-center cursor-pointer hover:scale-125 transition duration-200'
           onPress={() => navigation.navigate('DashBoard - Add Crops')}
         >
           <Text className='text-xl'>Add Crops +</Text>

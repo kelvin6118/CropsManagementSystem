@@ -31,15 +31,15 @@ const DashBoardTracker: React.FC<Props> = ({tracks}) => {
 
 
   return (
-    <View>
-    <View className='h-[35%] bg-slate-600'>
+    <View className='space-y-5'>
+    <View className='h-[35%] bg-[#6CC4A1] '>
       <ScrollView className='overflow-y-scroll'>
         <View className='flex flex-row flex-wrap justify-evenly w-full h-full'>
           {tracks?.map(t => <CropsCard track={t} setTrack={setTrackID}/>)}
         </View>
       </ScrollView>
     </View>
-    <View className='w-full'>
+    <View className='w-full bg-[#6CC4A1]'>
       <Calendar sown={sown} watered={watered} fed={fed} selected={selected}/>
     </View>
     </View>

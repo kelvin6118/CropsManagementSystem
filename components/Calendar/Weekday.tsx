@@ -8,8 +8,8 @@ type Props = {
 
 const Weekday: React.FC<Props> = ({weekday}) => {
   return (
-    <View className='w-[14%]'>
-      <Text>{weekday}</Text>
+    <View className='w-[14%] bg-black'>
+      <Text className='text-white text-center'>{weekday}</Text>
     </View>
   )
 }

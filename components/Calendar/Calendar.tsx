@@ -74,8 +74,8 @@ const Calendar: React.FC<Props> = ({sown, watered, fed, harvest, selected}) => {
     },[nav, selected])
 
   return (
-    <View className='w-full flex justify-center align-middle'>
-      <Text className='text-2xl'>{months[month]} {year}</Text>
+    <View className='flex p-5 w-[70%]'>
+      <Text className='text-2xl text-center'>{months[month]} {year}</Text>
         <View className='w-full flex flex-row h-[50px]'>
             {weekdays.map(w=>(<Weekday weekday={w}/>))}
         </View>
